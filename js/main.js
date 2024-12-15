@@ -11,7 +11,7 @@ const socialLast = document.getElementById("time-social-last");
 const selfcareCurrent = document.getElementById("time-selfcare-current");
 const selfcareLast = document.getElementById("time-selfcare-last");
 
-const allLi = document.querySelectorAll('li');
+const allLi = document.querySelectorAll("li");
 const dailyLink = document.getElementById("daily");
 const weeklyLink = document.getElementById("weekly");
 const monthlyLink = document.getElementById("monthly");
@@ -24,9 +24,17 @@ let displayPreviousText = "";
 
 
 async function getTimes() {
-    const response = await fetch("../data/data.json");
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch("../data/data.json");
+        if (!response.ok) {
+            throw new Error("Something went wrong");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        alert("Error fetching data.");
+    }
 }
 
 function highlightTimeframe() {
