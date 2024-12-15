@@ -57,6 +57,8 @@ function highlightTimeframe() {
 
 
 function renderTimes() {
+    highlightTimeframe();
+    
     let prefix;
     switch (timeframe) {
         case "daily":
@@ -139,7 +141,6 @@ function renderTimes() {
 allLi.forEach((item) => {
     item.addEventListener('click', (e) => {
         timeframe = e.target.id;
-        highlightTimeframe();
         renderTimes();
     })
 });
