@@ -25,7 +25,7 @@ let displayPreviousText = "";
 
 async function getTimes() {
     try {
-        const response = await fetch("../data/data.json");
+        const response = await fetch("./data/data.json");
         if (!response.ok) {
             throw new Error("Something went wrong");
         }
