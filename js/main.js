@@ -57,6 +57,19 @@ function highlightTimeframe() {
 
 
 function renderTimes() {
+    let prefix;
+    switch (timeframe) {
+        case "daily":
+            prefix = "Yesterday - ";
+            break;
+        case "weekly":
+            prefix = "Last Week - ";
+            break;
+        case "monthly":
+            prefix = "Last Month - ";
+            break;
+    }
+    
     const times = getTimes();
     
     times.then((data) => {
@@ -66,7 +79,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     workCurrent.innerText = displayCurrentText;
                     workLast.innerText = displayPreviousText;
                     break;
@@ -75,7 +88,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     playCurrent.innerText = displayCurrentText;
                     playLast.innerText = displayPreviousText;
                     break;
@@ -84,7 +97,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     studyCurrent.innerText = displayCurrentText;
                     studyLast.innerText = displayPreviousText;
                     break;
@@ -93,7 +106,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     exerciseCurrent.innerText = displayCurrentText;
                     exerciseLast.innerText = displayPreviousText;
                     break;
@@ -102,7 +115,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     socialCurrent.innerText = displayCurrentText;
                     socialLast.innerText = displayPreviousText;
                     break;
@@ -111,7 +124,7 @@ function renderTimes() {
                     displayCurrentText = item["timeframes"][timeframe]["current"];
                     displayPreviousText = item["timeframes"][timeframe]["previous"];
                     displayCurrentText += "hrs";
-                    displayPreviousText = "Last Week - " + displayPreviousText + "hrs";
+                    displayPreviousText = prefix + displayPreviousText + "hrs";
                     selfcareCurrent.innerText = displayCurrentText;
                     selfcareLast.innerText = displayPreviousText;
                     break;
